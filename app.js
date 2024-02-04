@@ -7,10 +7,23 @@ let primeiroParagrafo = document.querySelector('p');
 primeiroParagrafo.innerHTML = 'Escolha um número entre 1 e 10';
 */
 
-/*Abaixo foi criado uma função para os botões*/
+let numeroAleatorio = gerarNumeroAleatorio();
+/*Abaixo foi criada para gerar um numero aleatoriao */
+// essa função possui retorno
+function gerarNumeroAleatorio(){
+    return parseInt(Math.random() * 10 + 1);
+}
+
+/*Abaixo foi criado uma função para o botão e para o input*/
 // Essa função não tem parametro e nem retorno
 function verificarChute(){
-  console.log(numeroAleatorio);
+  let chute = document.querySelector('input').value;
+  console.log(chute == numeroAleatorio);
+ // if(){
+
+  //}else{
+
+ // }
 }
 
 /*Abaixo foi criado uma função passando parametros */
@@ -23,9 +36,3 @@ exibirTextoNaTela('h1', 'Jogo do número secreto');
 exibirTextoNaTela('p', 'Escolha um número entre 1 e 10');
 
 
-let numeroAleatorio = gerarNumeroAleatorio();
-/*Abaixo foi criada para gerar um numero aleatoriao */
-// essa função possui retorno
-function gerarNumeroAleatorio(){
-    return parseInt(Math.random() * 10 + 1);
-}
