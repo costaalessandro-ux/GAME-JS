@@ -8,6 +8,7 @@ primeiroParagrafo.innerHTML = 'Escolha um número entre 1 e 10';
 */
 
 let numeroAleatorio = gerarNumeroAleatorio();
+let tentativas = 1;
 /*Abaixo foi criada para gerar um numero aleatoriao */
 // essa função possui retorno
 function gerarNumeroAleatorio(){
@@ -18,12 +19,17 @@ function gerarNumeroAleatorio(){
 // Essa função não tem parametro e nem retorno
 function verificarChute(){
   let chute = document.querySelector('input').value;
-  console.log(chute == numeroAleatorio);
- // if(){
-
-  //}else{
-
- // }
+  if(chute == numeroAleatorio){
+    exibirTextoNaTela('h1', 'Acertou');
+    let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
+    let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}!`;
+    exibirTextoNaTela('p', mensagemTentativas);
+  }else if(chute > numeroAleatorio){
+    exibirTextoNaTela('p', 'Número secreto é menor!');
+  }else{
+    exibirTextoNaTela('p', 'Número secreto é maior!');
+  }
+  tentativas++;
 }
 
 /*Abaixo foi criado uma função passando parametros */
