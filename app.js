@@ -10,6 +10,10 @@ primeiroParagrafo.innerHTML = 'Escolha um número entre 1 e 10';
 /*Abaixo foi criado uma função passando parametros */
 // Essa função tem apenas parametros
 
+let listaDeNumerosSorteados = [];
+let numeroAleatorio = gerarNumeroAleatorio();
+let tentativas = 1;
+
 function exibirTextoNaTela(tag, texto){
   let campo = document.querySelector(tag);
   campo.innerHTML = texto;
@@ -21,12 +25,19 @@ function exibirMensagemInicial(){
 }
 exibirMensagemInicial();
 
-let numeroAleatorio = gerarNumeroAleatorio();
-let tentativas = 1;
 /*Abaixo foi criada para gerar um numero aleatoriao */
 // essa função possui retorno
 function gerarNumeroAleatorio(){
-    return parseInt(Math.random() * 10 + 1);
+    numeroEscolhido = parseInt(Math.random() * 10 + 1);
+    //metodo includes verifica se um numero já foi utilizado.
+    if(listaDeNumerosSorteados.includes(numeroEscolhido)){
+      return gerarNumeroAleatorio();
+    }else{
+      //metodo push insere número dentro da array.
+      listaDeNumerosSorteados.push(numeroEscolhido);
+      console.log(listaDeNumerosSorteados);
+      return numeroEscolhido
+    }
 }
 
 function limparCampo(){
